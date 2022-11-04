@@ -10,6 +10,5 @@ RUN pip install --upgrade pip
 RUN pip install streamlit
 RUN pip install -r requirements.txt
 
-COPY ./src /examples
 ENTRYPOINT [ "streamlit", "run"]
 CMD ["Hello.py"]
