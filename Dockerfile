@@ -1,5 +1,5 @@
 FROM python:3.7.2-slim
-LABEL maintainer="Tomer Levi @MrTomerLevi"
+LABEL maintainer="Somil"
 
 EXPOSE 8501
 
@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 
 COPY ./src /examples
 ENTRYPOINT [ "streamlit", "run"]
-CMD ["/examples/intro.py"]
+CMD ["Hello.py"]
