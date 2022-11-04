@@ -1,15 +1,13 @@
-FROM python:3.9.8
-LABEL maintainer="Somil"
+# app/Dockerfile
+
+FROM python:3.9-slim
 
 EXPOSE 8501
 
 WORKDIR /app
-COPY requirements.txt .
 
-RUN pip install --upgrade pip
-RUN pip install streamlit
-RUN pip install -r requirements.txt
+COPY . .
 
-COPY ./src /files
-ENTRYPOINT [ "streamlit", "run"]
-CMD ["/files/Hello.py"]
+RUN pip3 install -r requirements.txt
+
+ENTRYPOINT ["streamlit", "run", "Hello.py", "--server.port=8501", "--server.address=0.0.0.0"]
